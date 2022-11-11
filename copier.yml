@@ -14,7 +14,7 @@ major_version:
 odoo_path:
   type: str
   help: Where is the source code?
-  default: /var/home/jannik/Development/Odoo/src
+  default: /home/jannik/Development/Odoo/src
 
 project_src:
   type: str
