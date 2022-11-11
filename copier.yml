@@ -1,0 +1,28 @@
+# questions
+project_name:
+  type: str
+  help: What is your project name?
+
+major_version:
+  type: str
+  help: What is the major version?
+  choices:
+    - 16
+    - 15
+    - 14
+
+odoo_path:
+  type: str
+  help: Where is the source code?
+  default: /var/home/jannik/Development/Odoo/src
+
+project_src:
+  type: str
+  help: Where is custom code hosted?
+  default: git@github.com:obs-solutions/{{project_name}}.git
+
+_tasks:
+  - ln -s {{odoo_path}}/odoo{{major_version}} {{project_name}}/src/odoo
+  - ln -s {{odoo_path}}/enterprise{{major_version}} {{project_name}}/src/enterprise
+  - ln -s {{odoo_path}}/themes{{major_version}} {{project_name}}/src/themes
+  - git clone {{project_src}} {{project_name}}/src/user
