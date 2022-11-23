@@ -3,29 +3,23 @@
 		{
 			"path": "."
 		},
-		{
-			"path": "src/odoo"
-		},
-		{
-			"path": "src/enterprise"
-		},
-		{
-			"path": "src/user"
-		}
 	],
 	"settings": {
 		"python.defaultInterpreterPath": "~/.pyenv/versions/odoo{{major_version}}/bin/python"
+		"python.analysis.extraPaths": [
+			"./src/odoo"
+		],
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
 	},
 	"launch": {
 		"version" : "0.2.0",
 		"configurations": [
 			{
 				"name": "Odoo: Run",
-				"cwd": "${workspaceFolder:{{project_name}}}",
 				"type": "python",
 				"request": "launch",
-				"program": "${workspaceFolder:{{project_name}}}/src/odoo/odoo-bin",
-				"args": ["-c", "${workspaceFolder:{{project_name}}}/odoo.conf"],
+				"program": "./src/odoo/odoo-bin",
+				"args": ["-c", "./odoo.conf"],
 				"console": "integratedTerminal"
 			}
 		]
